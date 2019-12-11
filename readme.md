@@ -87,3 +87,26 @@ pipも導入されていることを確認します。
 pipのバージョンが古い場合は下記のコマンドで更新します。
 
     $ pip install --upgrade pip
+
+## NumPyの導入
+
+普通にpipでできました。
+
+    $ pip install numpy
+
+## Matplotlibの導入
+
+いくつかのライブラリの追加が必要です。
+
+    $ sudo apt-get install pkg-config libpng-dev libfreetype6-dev
+    $ pip install matplotlib
+
+またグラフは画像データとして保存します。
+
+    [sample.py]
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    plt.plot([1, 2])
+    plt.savefig('image.png')
+
