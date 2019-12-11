@@ -101,7 +101,7 @@ pipのバージョンが古い場合は下記のコマンドで更新します�
     $ sudo apt-get install pkg-config libpng-dev libfreetype6-dev
     $ pip install matplotlib
 
-またグラフは画像データとして保存します。
+グラフは画像データとして保存します。
 
     [sample.py]
     import matplotlib
@@ -110,3 +110,9 @@ pipのバージョンが古い場合は下記のコマンドで更新します�
     plt.plot([1, 2])
     plt.savefig('image.png')
 
+## Jupyter Notebookの導入
+
+こちらも普通にpipでできました。
+
+    $ pip install jupyter
+    $ jupyter notebook
