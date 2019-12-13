@@ -116,3 +116,22 @@ pipのバージョンが古い場合は下記のコマンドで更新します�
 
     $ pip install jupyter
     $ jupyter notebook
+
+## VSCode(VisualStudio Code) の導入
+
+パッケージのダウンロード
+
+    入手先→ https://github.com/headmelted/codebuilds/releases
+    ファイル名→ code-oss_1.42.0-1575959662_arm64.deb
+
+パッケージのインストール
+
+    ダウンロードしたファイルを右クリック（ダブルタップ）する
+    [Linux（ベータ版）でのインストール]をクリックする
+
+VSCodeの起動
+
+    ランチャーに追加されたアイコン[Code - OSS(headmelted)]をクリックする
+    ターミナルで「code-oss .」と入力するとカレントディレクトリから起動する
+
+※日本語入力については現在調査中
