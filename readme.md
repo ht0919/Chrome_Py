@@ -1,8 +1,8 @@
-# Chromebookにpyenv+pythonをインストールする
+# Chromebook(S330)にpyenv+python+VSCodeのインストールと日本語入力の設定
 
 ## 概要
 
-Chromebookを購入してLinux環境にPythonを導入しました。その作業手順を解説します。
+Lenovo S330というARM系のChromebookを購入してLinux環境にPythonを導入しました。その作業手順を解説します。
 
 ## ハードウェア
 
@@ -123,9 +123,20 @@ pipのバージョンが古い場合は下記のコマンドで更新します�
 
     $ sudo apt install fonts-noto
 
-日本語入力の追加
+日本語入力の追加と設定
 
-    ※日本語入力については現在調査中です。
+    $ sudo apt install fcitx-anthy
+    $ fcitx-autostart
+    $ fcitx-configtool
+    ※Input MethodにAnthyを追加する
+
+日本語入力の起動
+
+    $ fcitx-autostart
+
+日本語入力の停止
+
+    $ pkill -f fcitx
 
 ## VSCode(VisualStudio Code) の導入
 
