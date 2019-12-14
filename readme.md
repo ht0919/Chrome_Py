@@ -126,9 +126,13 @@ pipのバージョンが古い場合は下記のコマンドで更新します�
 日本語入力の追加と設定
 
     $ sudo apt install fcitx-anthy
+
+日本切替キーの設定
+
     $ fcitx-autostart
     $ fcitx-configtool
-    ※Input MethodにAnthyを追加する
+    ※ Input MethodにAnthyを追加する
+    ※ Global ConfigでHotKeyを[ctrl]+[space]に設定
 
 日本語入力の起動
 
@@ -154,3 +158,16 @@ VSCodeの起動
 
     ランチャーに追加されたアイコン[Code - OSS(headmelted)]をクリックする
     ターミナルで「code-oss .」と入力するとカレントディレクトリから起動する
+
+メニューの日本語化
+
+    1. [ctrl]+[shift]+[x]で拡張機能を表示する
+    2. 「Japanese」を検索する
+    3. 「Japanese Language Pack for VS Code」をインストールする
+
+キーバインドの変更
+
+    ※日本語入力の切替と重なるため「候補をトリガー」のキーバインドを変更する
+    1. [ctrl]+[k]+[s]でキーボードショートカットを表示する
+    2. 「候補」を検索する
+    3. [alt]+[space]に変更する
