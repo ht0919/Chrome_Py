@@ -117,6 +117,16 @@ pipのバージョンが古い場合は下記のコマンドで更新します�
     $ pip install jupyter
     $ jupyter notebook
 
+## 日本語関連の設定
+
+日本語フォントの追加
+
+    $ sudo apt install fonts-noto
+
+日本語入力の追加
+
+    ※日本語入力については現在調査中です。
+
 ## VSCode(VisualStudio Code) の導入
 
 パッケージのダウンロード
@@ -133,5 +143,3 @@ VSCodeの起動
 
     ランチャーに追加されたアイコン[Code - OSS(headmelted)]をクリックする
     ターミナルで「code-oss .」と入力するとカレントディレクトリから起動する
-
-※日本語入力については現在調査中
