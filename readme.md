@@ -182,7 +182,7 @@ VSCodeの起動
 
     $ pip install scipy
 
-## SciPyの導入
+## scikit-learnの導入
 
 こちらもかなり時間がかかります。終わるまで気長に待ちましょう。
 
