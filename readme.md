@@ -197,3 +197,9 @@ Jpeg関連のライブラリが必要です。
 こちらは普通にインストールできます。
 
     $ pip install Pillow
+
+## Pandasの導入
+
+こちらもかなり時間がかかります。終わるまで気長に待ちましょう。
+
+    $ pip install pandas
