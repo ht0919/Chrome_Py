@@ -171,3 +171,13 @@ VSCodeの起動
     1. [ctrl]+[k]+[s]でキーボードショートカットを表示する
     2. 「候補」を検索する
     3. [alt]+[space]に変更する
+
+## SciPyの導入
+
+いくつかのライブラリの追加が必要です。
+
+    $ sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev
+
+処理時間がすごくかかります。終わるまで気長に待ちましょう。
+
+    $ pip install scipy
