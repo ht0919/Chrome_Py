@@ -187,3 +187,13 @@ VSCodeの起動
 こちらもかなり時間がかかります。終わるまで気長に待ちましょう。
 
     $ pip install scikit-learn
+
+## Pillowの導入
+
+Jpeg関連のライブラリが必要です。
+
+    $ sudo apt-get install libjpeg-dev
+
+こちらは普通にインストールできます。
+
+    $ pip install Pillow
