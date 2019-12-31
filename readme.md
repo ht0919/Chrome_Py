@@ -213,3 +213,14 @@ Jpeg関連のライブラリが必要です。
 こちらもかなり時間がかかります。終わるまで気長に待ちましょう。
 
     $ pip install pandas-datareader
+
+## Numbaの導入
+
+llvmの導入が必要です。
+
+    $ sudo apt-get install llvm-3.8
+    $ LLVM_CONFIG=/usr/bin/llvm-config-3.8 pip install llvmlite==0.15.0
+
+こちらもかなり時間がかかります。終わるまで気長に待ちましょう。
+
+    $ LLVM_CONFIG=/usr/bin/llvm-config-3.8 pip install numba==0.30.1
