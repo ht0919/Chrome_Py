@@ -203,3 +203,13 @@ Jpeg関連のライブラリが必要です。
 こちらもかなり時間がかかります。終わるまで気長に待ちましょう。
 
     $ pip install pandas
+
+## pandas-datareaderの導入
+
+追加のライブラリが必要です。
+
+    $ sudo apt-get install libxml2 libxslt-dev
+
+こちらもかなり時間がかかります。終わるまで気長に待ちましょう。
+
+    $ pip install pandas-datareader
