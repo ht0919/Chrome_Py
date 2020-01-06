@@ -201,9 +201,9 @@ Jpeg関連のライブラリが必要です。
 
 ## Pandasの導入
 
-こちらもかなり時間がかかります。
+エラー回避のため古いバージョンを入れています。かなり時間がかかります。
 
-    $ pip install pandas
+    $ pip install pandas==0.24.1
 
 ## pandas-datareaderの導入
 
