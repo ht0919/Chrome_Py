@@ -1,8 +1,8 @@
-# Chromebook(S330)にpyenv+python+VSCodeのインストールと日本語入力の設定
+# Lenovo Chromebook S330 にPython+VSCodeのインストールと日本語入力の設定
 
 ## 概要
 
-Lenovo S330というARM系のChromebookを購入してLinux環境にPythonを導入しました。その作業手順を解説します。
+Lenovo Chromebook S330というARM系のChromebookを購入したので、Linux環境にPythonとVSCodeを導入しました。その作業手順を解説します。
 
 ## ハードウェア
 
@@ -65,15 +65,15 @@ cat /etc/os-releaseを実行すると、次の内容が表示されました。
 
 ## Pythonの導入
 
-今回は、Google Colaboratoryと同じ[3.6.9]を導入します。
+今回は、Arm64版のTensorflowを入れたいので[3.5.9]を導入します。
 
-    $ pyenv install 3.6.9
+    $ pyenv install 3.5.9
 
 ## バージョンの有効化
 
 globalコマンドで導入したバージョンを有効にして動作確認します。
 
-    $ pyenv global 3.6.9
+    $ pyenv global 3.5.9
     $ python --version
 
 ## pipの動作確認
@@ -82,17 +82,18 @@ pipも導入されていることを確認します。
 
     $ pip list
 
-## pipの更新
+## pipとsetuptoolsの更新
 
-pipのバージョンが古い場合は下記のコマンドで更新します。
+バージョンが古いので下記のコマンドで更新します。
 
     $ pip install --upgrade pip
+    $ pip install --upgrade setuptools
 
 ## NumPyの導入
 
-普通にpipでできました。
+ここではTensorflowでのエラー回避のため古いバージョンを入れています。
 
-    $ pip install numpy
+    $ pip install numpy==1.13.3
 
 ## Matplotlibの導入
 
@@ -178,15 +179,15 @@ VSCodeの起動
 
     $ sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev
 
-処理時間がすごくかかります。終わるまで気長に待ちましょう。
+エラー回避のため古いバージョンを入れています。処理時間がすごくかかります。
 
-    $ pip install scipy
+    $ pip install scipy==1.0.0
 
 ## scikit-learnの導入
 
-こちらもかなり時間がかかります。終わるまで気長に待ちましょう。
+エラー回避のため古いバージョンを入れています。こちらもかなり時間がかかります。
 
-    $ pip install scikit-learn
+    $ pip install scikit-learn==0.19.1
 
 ## Pillowの導入
 
@@ -194,13 +195,13 @@ Jpeg関連のライブラリが必要です。
 
     $ sudo apt-get install libjpeg-dev
 
-こちらは普通にインストールできます。
+エラー回避のため古いバージョンを入れています。
 
-    $ pip install Pillow
+    $ pip install Pillow==5.0.0
 
 ## Pandasの導入
 
-こちらもかなり時間がかかります。終わるまで気長に待ちましょう。
+こちらもかなり時間がかかります。
 
     $ pip install pandas
 
@@ -236,3 +237,13 @@ sudo apt-get update で次のようなワーニングが表示される場合が
     $ sudo apt-get install curl gnupg
     $ curl -L https://packagecloud.io/headmelted/codebuilds/gpgkey | sudo apt-key add -
 
+## tensorflow-aarch64の導入
+
+pipとwheelをインストールします。
+
+    $ curl -sL https://bootstrap.pypa.io/get-pip.py | python3 -
+
+tensorflow-aarch64をインストールします。
+
+    $ curl -L https://github.com/lherman-cs/tensorflow-aarch64/releases/download/r1.4/tensorflow-1.4.0rc0-cp35-cp35m-linux_aarch64.whl > /tmp/tensorflow-1.4.0rc0-cp35-cp35m-linux_aarch64.whl
+    $ python3 -m pip install /tmp/tensorflow-1.4.0rc0-cp35-cp35m-linux_aarch64.whl
