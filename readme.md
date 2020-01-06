@@ -224,3 +224,15 @@ llvmの導入が必要です。
 こちらもかなり時間がかかります。終わるまで気長に待ちましょう。
 
     $ LLVM_CONFIG=/usr/bin/llvm-config-3.8 pip install numba==0.30.1
+
+## GPG keyの導入
+
+sudo apt-get update で次のようなワーニングが表示される場合があります。
+
+    W: GPG error: https://packagecloud.io/headmelted/codebuilds/debian stretch InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 0CC3FD642696BFC8
+
+この場合、GPG key の導入で対処できます。
+
+    $ sudo apt-get install curl gnupg
+    $ curl -L https://packagecloud.io/headmelted/codebuilds/gpgkey | sudo apt-key add -
+
