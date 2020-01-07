@@ -14,6 +14,25 @@ Lenovo Chromebook S330というARM系のChromebookを購入したので、Linux�
     メモリ：4GB
     ストレージ：64GB(eMMC)
 
+## Python関連のバージョン
+
+今回は次のバージョンを導入しました。
+
+    Python       3.5.9
+    pip          1.9.3
+    wheel        0.33.6
+    setuptools   44.0.0
+    numpy        1.13.3
+    matplotlib   2.1.1
+    jupyter      1.0.0
+    scipy        1.0.0
+    scikit-learn 0.19.1
+    Pillow       5.0.0
+    pandas       0.24.1
+    numba        0.30.1
+    tensorflow   1.4.0rc0
+    Keras        2.0.8
+
 ## Linux環境の導入
 
 Linux環境は次の作業でインストールします。
