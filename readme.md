@@ -30,6 +30,8 @@ Lenovo Chromebook S330というARM系のChromebookを購入したので、Linux�
     Pillow       5.0.0
     pandas       0.24.1
     numba        0.30.1
+    seaborn      0.9.0
+    statsmodels  0.10.2
     tensorflow   1.4.0rc0
     Keras        2.0.8
 
@@ -264,6 +266,13 @@ llvmの導入が必要です。
 こちらもかなり時間がかかります。終わるまで気長に待ちましょう。
 
     $ LLVM_CONFIG=/usr/bin/llvm-config-3.8 pip install numba==0.30.1
+
+## seabornとstatsmodelsの導入
+
+Pandas本で必要だったので導入しました。
+
+    $ pip install seaborn
+    $ pip install statsmodels
 
 ## tensorflow-aarch64の導入
 
