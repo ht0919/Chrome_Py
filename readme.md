@@ -1,8 +1,8 @@
-# Lenovo Chromebook S330 にPython+VSCodeのインストールと日本語入力の設定
+# Lenovo Chromebook S330 に、VSCodeとPython+Keras+Tensorflowの導入
 
 ## 概要
 
-Lenovo Chromebook S330というARM系のChromebookを購入したので、Linux環境にPythonとVSCodeを導入しました。その作業手順を解説します。
+Lenovo Chromebook S330というARM系のChromebookを購入したので、Linux環境にVSCodeとPython+Keras+Tensorflowを導入しました。その作業手順を解説します。
 
 ## ハードウェア
 
@@ -38,85 +38,29 @@ cat /etc/os-releaseを実行すると、次の内容が表示されました。
     SUPPORT_URL="https://www.debian.org/support"
     BUG_REPORT_URL="https://bugs.debian.org/"
 
-## pyenvの導入
+## パッケージの更新
 
-複数のPythonを切り替えて使えるように、plenvを導入します。
+    $ sudo apt-get update
+    $ sudo apt-get upgrade -y
+    $ sudo apt-get dist-upgrade
+    $ sudo apt-get autoclean
 
-    $ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+## GPG keyの導入
 
-## 環境変数の設定
+sudo apt-get update で次のようなワーニングが表示される場合があります。
 
-テキストエディタで「~/.profile」を開き、最下行に次の5行を追加します。
-その後、sourceコマンドで再読込みします。
+    W: GPG error: https://packagecloud.io/headmelted/codebuilds/debian stretch InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 0CC3FD642696BFC8
 
-    export PYENV_ROOT=$HOME/.pyenv
-    export PATH=$PYENV_ROOT/bin:$PATH
-    if command -v pyenv 1>/dev/null 2>&1; then
-      eval "$(pyenv init -)"
-    fi
+この場合、GPG key の導入で対処できます。
 
-    $ source ~/.profile
+    $ sudo apt-get install curl gnupg
+    $ curl -L https://packagecloud.io/headmelted/codebuilds/gpgkey | sudo apt-key add -
 
 ## ビルド環境の導入
 
 ソースから落としたPythonをビルドするためのツールやライブラリを導入します。
 
     $ sudo apt-get install build-essential zlib1g-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev libssl-dev
-
-## Pythonの導入
-
-今回は、Arm64版のTensorflowを入れたいので[3.5.9]を導入します。
-
-    $ pyenv install 3.5.9
-
-## バージョンの有効化
-
-globalコマンドで導入したバージョンを有効にして動作確認します。
-
-    $ pyenv global 3.5.9
-    $ python --version
-
-## pipの動作確認
-
-pipも導入されていることを確認します。
-
-    $ pip list
-
-## pipとsetuptoolsの更新
-
-バージョンが古いので下記のコマンドで更新します。
-
-    $ pip install --upgrade pip
-    $ pip install --upgrade setuptools
-
-## NumPyの導入
-
-ここではTensorflowでのエラー回避のため古いバージョンを入れています。
-
-    $ pip install numpy==1.13.3
-
-## Matplotlibの導入
-
-いくつかのライブラリの追加が必要です。
-
-    $ sudo apt-get install pkg-config libpng-dev libfreetype6-dev
-    $ pip install matplotlib
-
-グラフは画像データとして保存します。
-
-    [sample.py]
-    import matplotlib
-    matplotlib.use('Agg')
-    import matplotlib.pyplot as plt
-    plt.plot([1, 2])
-    plt.savefig('image.png')
-
-## Jupyter Notebookの導入
-
-こちらも普通にpipでできました。
-
-    $ pip install jupyter
-    $ jupyter notebook
 
 ## 日本語関連の設定
 
@@ -173,6 +117,80 @@ VSCodeの起動
     2. 「候補」を検索する
     3. [alt]+[space]に変更する
 
+## pyenvの導入
+
+複数のPythonを切り替えて使えるように、plenvを導入します。
+
+    $ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+## 環境変数の設定
+
+テキストエディタで「~/.profile」を開き、最下行に次の5行を追加します。
+その後、sourceコマンドで再読込みします。
+
+    export PYENV_ROOT=$HOME/.pyenv
+    export PATH=$PYENV_ROOT/bin:$PATH
+    if command -v pyenv 1>/dev/null 2>&1; then
+      eval "$(pyenv init -)"
+    fi
+
+    $ source ~/.profile
+
+## Pythonの導入
+
+今回は、Arm64版のTensorflowを入れたいので[3.5.9]を導入します。
+
+    $ pyenv install 3.5.9
+
+## バージョンの有効化
+
+globalコマンドで導入したバージョンを有効にして動作確認します。
+
+    $ pyenv global 3.5.9
+    $ python --version
+
+## pipの動作確認
+
+pipも導入されていることを確認します。
+
+    $ pip list
+
+## pipとsetuptoolsの更新
+
+バージョンが古いので下記のコマンドで更新します。
+
+    $ pip install --upgrade pip
+    $ pip install --upgrade setuptools
+
+## NumPyの導入
+
+Tensorflowでのエラー回避のため古いバージョンを入れています。
+
+    $ pip install numpy==1.13.3
+
+## Matplotlibの導入
+
+いくつかのライブラリの追加が必要です。
+
+    $ sudo apt-get install pkg-config libpng-dev libfreetype6-dev
+    $ pip install matplotlib
+
+グラフは画像データとして保存します。
+
+    [sample.py]
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    plt.plot([1, 2])
+    plt.savefig('image.png')
+
+## Jupyter Notebookの導入
+
+こちらも普通にpipでできました。
+
+    $ pip install jupyter
+    $ jupyter notebook
+
 ## SciPyの導入
 
 いくつかのライブラリの追加が必要です。
@@ -185,7 +203,8 @@ VSCodeの起動
 
 ## scikit-learnの導入
 
-エラー回避のため古いバージョンを入れています。こちらもかなり時間がかかります。
+Tensorflowでのエラー回避のため古いバージョンを入れています。
+こちらもかなり時間がかかります。
 
     $ pip install scikit-learn==0.19.1
 
@@ -195,13 +214,14 @@ Jpeg関連のライブラリが必要です。
 
     $ sudo apt-get install libjpeg-dev
 
-エラー回避のため古いバージョンを入れています。
+Tensorflowでのエラー回避のため古いバージョンを入れています。
 
     $ pip install Pillow==5.0.0
 
 ## Pandasの導入
 
-エラー回避のため古いバージョンを入れています。かなり時間がかかります。
+Tensorflowでのエラー回避のため古いバージョンを入れています。
+かなり時間がかかります。
 
     $ pip install pandas==0.24.1
 
@@ -211,7 +231,7 @@ Jpeg関連のライブラリが必要です。
 
     $ sudo apt-get install libxml2 libxslt-dev
 
-こちらもかなり時間がかかります。終わるまで気長に待ちましょう。
+こちらもかなり時間がかかります。
 
     $ pip install pandas-datareader
 
@@ -226,20 +246,9 @@ llvmの導入が必要です。
 
     $ LLVM_CONFIG=/usr/bin/llvm-config-3.8 pip install numba==0.30.1
 
-## GPG keyの導入
-
-sudo apt-get update で次のようなワーニングが表示される場合があります。
-
-    W: GPG error: https://packagecloud.io/headmelted/codebuilds/debian stretch InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 0CC3FD642696BFC8
-
-この場合、GPG key の導入で対処できます。
-
-    $ sudo apt-get install curl gnupg
-    $ curl -L https://packagecloud.io/headmelted/codebuilds/gpgkey | sudo apt-key add -
-
 ## tensorflow-aarch64の導入
 
-pipとwheelをインストールします。
+pipとwheelをインストール(更新)します。
 
     $ curl -sL https://bootstrap.pypa.io/get-pip.py | python3 -
 
@@ -247,3 +256,19 @@ tensorflow-aarch64をインストールします。
 
     $ curl -L https://github.com/lherman-cs/tensorflow-aarch64/releases/download/r1.4/tensorflow-1.4.0rc0-cp35-cp35m-linux_aarch64.whl > /tmp/tensorflow-1.4.0rc0-cp35-cp35m-linux_aarch64.whl
     $ python3 -m pip install /tmp/tensorflow-1.4.0rc0-cp35-cp35m-linux_aarch64.whl
+
+## Kerasの導入
+
+tensorflow-1.4と相性の良い2.0.8をインストールします。
+
+    $ pip install keras==2.0.8
+
+動作確認
+
+    $ python
+    Python 3.5.9 (default, Jan  6 2020, 21:51:58) 
+    [GCC 6.3.0 20170516] on linux
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> import keras
+    Using TensorFlow backend.
+    >>> exit()
