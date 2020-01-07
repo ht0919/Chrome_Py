@@ -1,4 +1,4 @@
-# Lenovo Chromebook S330 に、VSCodeとPython+Keras+Tensorflowの導入
+# Lenovo Chromebook S330に、VSCodeとPython+Keras+Tensorflowを導入する
 
 ## 概要
 
