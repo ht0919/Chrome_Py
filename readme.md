@@ -19,18 +19,18 @@ Lenovo Chromebook S330というARM系のChromebookを購入したので、Linux�
 今回は次のバージョンを導入しました。
 
     Python       3.5.9
-    pip          1.9.3
+    pip          20.0.2
     wheel        0.33.6
-    setuptools   44.0.0
-    numpy        1.13.3
-    matplotlib   2.1.1
+    setuptools   45.1.0
+    numpy        1.16.2
+    matplotlib   3.0.3
     jupyter      1.0.0
     scipy        1.0.0
     scikit-learn 0.19.1
     Pillow       5.0.0
     pandas       0.24.1
     numba        0.30.1
-    seaborn      0.9.0
+    seaborn      0.9.1
     statsmodels  0.10.2
     tensorflow   1.4.0rc0
     Keras        2.0.8
@@ -81,7 +81,7 @@ sudo apt-get update で次のようなワーニングが表示される場合が
 
 ソースから落としたPythonをビルドするためのツールやライブラリを導入します。
 
-    $ sudo apt-get install build-essential zlib1g-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev libssl-dev
+    $ sudo apt-get install build-essential zlib1g-dev libffi-dev libbz2-dev libreadline-dev libsqlite3-dev libssl-dev tk-dev
 
 ## 日本語関連の設定
 
@@ -187,7 +187,7 @@ pipも導入されていることを確認します。
 
 Tensorflowでのエラー回避のため古いバージョンを入れています。
 
-    $ pip install numpy==1.13.3
+    $ pip install numpy==1.16.2
 
 ## Matplotlibの導入
 
@@ -196,14 +196,9 @@ Tensorflowでのエラー回避のため古いバージョンを入れていま�
     $ sudo apt-get install pkg-config libpng-dev libfreetype6-dev
     $ pip install matplotlib
 
-グラフは画像データとして保存します。
+グラフが表示されない場合、tk-devをインストールしてからpythonを再インストールしてください。
 
-    [sample.py]
-    import matplotlib
-    matplotlib.use('Agg')
-    import matplotlib.pyplot as plt
-    plt.plot([1, 2])
-    plt.savefig('image.png')
+    $ sudo apt-get install tk-dev
 
 ## Jupyter Notebookの導入
 
@@ -220,7 +215,7 @@ Tensorflowでのエラー回避のため古いバージョンを入れていま�
 
 エラー回避のため古いバージョンを入れています。処理時間がすごくかかります。
 
-    $ pip install scipy==1.0.0
+    $ pip install scipy==1.2.0
 
 ## scikit-learnの導入
 
