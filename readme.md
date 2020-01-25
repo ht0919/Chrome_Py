@@ -97,16 +97,17 @@ sudo apt-get update で次のようなワーニングが表示される場合が
 
     $ fcitx-autostart
     $ fcitx-configtool
-    ※ Input MethodにAnthyを追加する
-    ※ Global ConfigでHotKeyを[ctrl]+[space]に設定
+    ※ 「Input Method」で[+]をクリックして[Anthy]を追加する
+    ※ [Anthy]がない場合は[Only Show Current Language]をオフにする
 
-日本語入力の起動
+日本語入力の起動スクリプト(im-start.sh)
 
-    $ fcitx-autostart
+    export XMODIFIERS="@im=fcitx"
+    fcitx-autostart &> /dev/null
 
-日本語入力の停止
+日本語入力の停止スクリプト(im-stop.sh)
 
-    $ pkill -f fcitx
+    pkill -f fcitx > /dev/null
 
 ## VSCode(VisualStudio Code) の導入
 
