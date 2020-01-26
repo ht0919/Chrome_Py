@@ -271,8 +271,8 @@ llvmの導入が必要です。
 
 Pandas本で必要だったので導入しました。
 
-    $ pip install seaborn
-    $ pip install statsmodels
+    $ pip install seaborn==0.9.1
+    $ pip install statsmodels==0.10.2
 
 ## tensorflow-aarch64の導入
 
