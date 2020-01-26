@@ -25,7 +25,7 @@ Lenovo Chromebook S330というARM系のChromebookを購入したので、Linux�
     numpy        1.16.2
     matplotlib   3.0.3
     jupyter      1.0.0
-    scipy        1.0.0
+    scipy        1.2.0
     scikit-learn 0.19.1
     Pillow       5.0.0
     pandas       0.24.1
