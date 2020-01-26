@@ -197,7 +197,11 @@ Tensorflowでのエラー回避のため古いバージョンを入れていま�
     $ sudo apt-get install pkg-config libpng-dev libfreetype6-dev
     $ pip install matplotlib
 
-グラフが表示されない場合、tk-devをインストールしてからpythonを再インストールしてください。
+表示確認。小さなウィンドウが表示されればOKです。
+
+    $ python -m tkinter
+
+ウィンドウが表示されない場合、tk-devをインストールしてからpythonを再インストールしてください。
 
     $ sudo apt-get install tk-dev
 
