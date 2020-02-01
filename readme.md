@@ -74,8 +74,8 @@ sudo apt-get update で次のようなワーニングが表示される場合が
 
 この場合、GPG key の導入で対処できます。
 
-    $ sudo apt-get install curl gnupg
-    $ curl -L https://packagecloud.io/headmelted/codebuilds/gpgkey | sudo apt-key add -
+    $ gpg --recv-key [public key]
+    $ gpg -a --export [public key] | sudo apt-key add -
 
 ## ビルド環境の導入
 
