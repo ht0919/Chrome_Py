@@ -139,22 +139,28 @@ VSCodeの起動
     2. 「候補」を検索する
     3. [alt]+[space]に変更する
 
-## pyenvの導入
+## pyenvとpyenv-virtualenvの導入
 
 複数のPythonを切り替えて使えるように、plenvを導入します。
 
     $ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 
+続けてpyenv-virtualenvを導入します。
+
+    $ git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+
 ## 環境変数の設定
 
-テキストエディタで「~/.profile」を開き、最下行に次の5行を追加します。
-その後、sourceコマンドで再読込みします。
+テキストエディタで「~/.profile」を開き、最下行に次のコードを追加します。
 
     export PYENV_ROOT=$HOME/.pyenv
     export PATH=$PYENV_ROOT/bin:$PATH
     if command -v pyenv 1>/dev/null 2>&1; then
       eval "$(pyenv init -)"
+      eval "$(pyenv virtualenv-init -)"
     fi
+
+その後、sourceコマンドで再読込みします。
 
     $ source ~/.profile
 
