@@ -300,3 +300,14 @@ tensorflow-1.4と相性の良い2.0.8をインストールします。
     >>> import keras
     Using TensorFlow backend.
     >>> exit()
+
+## Pygameの導入
+
+追加のライブラリが必要です。
+
+    $ sudo apt-get install libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
+    $ sudo apt-get install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
+
+Pygameを導入します。
+
+    $ pip install pygame
