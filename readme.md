@@ -108,10 +108,10 @@ sudo apt-get update で次のようなワーニングが表示される場合が
 次にフォントを設定します。
 
     1. 画面上部の「Appearance」タブを選択する
-    2. 「font」をクリックする
-    3. 「search font name」で「Noto Sans CJK JP Regular」と入力する
+    2. 「Font」をクリックする
+    3. 「Search font name」をクリックして「Noto Sans CJK JP Regular」と入力する
     4. 表示された「Noto Sans CJP JP Regular」を選択して「Select」ボタンをクリックする
-    5. 「Menu font」も同様同に設定する。
+    5. 「Menu Font」も同様同に設定する。
     6. 最後に[x]ボタンをクリックしてダイアログを閉じる
 
 ## 日本語入力の自動起動
@@ -120,7 +120,7 @@ sudo apt-get update で次のようなワーニングが表示される場合が
 
     $ sudo vim /etc/systemd/user/cros-garcon.service.d/cros-garcon-override.conf
 
-次の3行を最下行に追加します。
+次の3行を最下行に追加して保存します。
 
     Environment="GTK_IM_MODULE=fcitx"
     Environment="QT_IM_MODULE=fcitx"
