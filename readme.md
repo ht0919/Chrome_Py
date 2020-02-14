@@ -97,17 +97,44 @@ sudo apt-get update で次のようなワーニングが表示される場合が
 
     $ fcitx-autostart
     $ fcitx-configtool
-    ※ 「Input Method」で[+]をクリックして[Anthy]を追加する
-    ※ [Anthy]がない場合は[Only Show Current Language]をオフにする
 
-日本語入力の起動スクリプト(im-start.sh)
+表示された画面で次の操作を実行します。
 
-    export XMODIFIERS="@im=fcitx"
-    fcitx-autostart &> /dev/null
+    1. 「Input Method」タブを選択して左下の[+]ボタンをクリックする
+    2. [Only Show Current Language]のチェックをオフにする
+    3. [Search Input Method]で「Anthy」と入力する
+    4. 表示された[Anthy]を選択して[OK]ボタンをクリックする
 
-日本語入力の停止スクリプト(im-stop.sh)
+次にフォントを設定します。
 
-    pkill -f fcitx > /dev/null
+    1. 画面上部の「Appearance」タブを選択する
+    2. 「font」をクリックする
+    3. 「search font name」で「Noto Sans CJK JP Regular」と入力する
+    4. 表示された「Noto Sans CJP JP Regular」を選択して「Select」ボタンをクリックする
+    5. 「Menu font」も同様同に設定する。
+    6. 最後に[x]ボタンをクリックしてダイアログを閉じる
+
+## 日本語入力の自動起動
+
+次のファイルを管理者モードで開きます。
+
+    $ sudo vim /etc/systemd/user/cros-garcon.service.d/cros-garcon-override.conf
+
+次の3行を最下行に追加します。
+
+    Environment="GTK_IM_MODULE=fcitx"
+    Environment="QT_IM_MODULE=fcitx"
+    Environment="XMODIFIERS=@im=fcitx"
+
+次のファイルをホームディレクトリに作成します。
+
+    vim ~/.sommelierrc
+
+次の1行を最下行に追加します。
+
+    /usr/bin/fcitx-autostart
+
+これらの設定を有効にするため、一度ログアウトしてからログインし直してください。
 
 ## VSCode(VisualStudio Code) の導入
 
