@@ -283,7 +283,7 @@ Tensorflowでのエラー回避のため古いバージョンを入れていま�
 
 追加のライブラリが必要です。
 
-    $ sudo apt-get install libxml2 libxslt-dev
+    $ sudo apt-get install libxml2 libxslt1-dev
 
 こちらもかなり時間がかかります。
 
