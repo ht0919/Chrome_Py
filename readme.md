@@ -344,3 +344,14 @@ tensorflow-1.4と相性の良い2.0.8をインストールします。
 Pygameを導入します。
 
     $ pip install pygame
+
+## Graphviz による決定木の可視化
+
+まずはUbuntuにパッケージをインストールします。
+
+    $ sudo apt-get install graphviz
+
+次にpipで2つのパッケージをインストールします。
+
+    $ pip install pydotplus
+    $ pip install graphviz
